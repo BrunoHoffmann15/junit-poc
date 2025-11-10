@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ExemploTagEDisplayName {
@@ -17,14 +18,19 @@ public class ExemploTagEDisplayName {
     @DisplayName("Dado uma descrição válida, quando chamar o método possuiDescrição, então deve ser retornado verdadeiro.")
     @Tag("descricao")
     public void possuiDescricao_DescricaoValida_DeveRetornarVerdadeiro() {
+        String descricao = "Cinema 20/01";
+        Gasto gasto = new Gasto(descricao);
 
+        assertTrue(gasto.possuiDescricao());
     }
 
-    @Test
     @DisplayName("Dado uma descrição inválida, quando chamar o método possuiDescrição, então deve ser retornado falso.")
+    @ParameterizedTest(name = "Dado o valor inválido {0}, deve ser retornado falso.")
+    @ValueSource(strings = {""})
     @Tag("descricao")
-    public void possuiDescricao_DescricaoInvalida_DeveRetornarFalso() {
-
+    public void possuiDescricao_DescricaoInvalida_DeveRetornarFalso(String descricaoInvalida) {
+        Gasto gasto = new Gasto(descricaoInvalida);
+        assertFalse(gasto.possuiDescricao());
     }
 
 

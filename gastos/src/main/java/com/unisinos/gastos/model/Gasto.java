@@ -34,6 +34,10 @@ public class Gasto {
         this.valor = valor;
     }
 
+    public Gasto(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Gasto() {}
 
 }
