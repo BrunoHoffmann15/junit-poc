@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ExemploTagEDisplayName {
+public class ExemploTagEDisplayNameTest {
 
     @Test
     @DisplayName("Dado uma descrição válida, quando chamar o método possuiDescrição, então deve ser retornado verdadeiro.")
